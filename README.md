@@ -20,6 +20,8 @@ The LSB (the number on the far right) should correspond to the 'PCI Rev ID' from
 ## Other notes
 From what I can tell, the older B0 stepping can still be okay if they apply a hardware fix. Basically, they solder some pull up resistors on some of the clock lines on the motherboard. Check the links below for more info and pictures.
 
+Additionally, this bug will not cause a failure (they say) when the hardware is running. It will manifest as a failure to boot after a restart.
+
 The spec document also talks about the CPUID and MSR (model specific registers). These can also be read from BSD, but I don't think they are actually relevant for determining the stepping of the CPU.
 
 To read the CPUID in BSD:
