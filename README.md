@@ -1,12 +1,12 @@
 # C2000 Bug Info
 Compiling a list of info I have found on the C2000 bug. Most notably how to determine if your CPU is affected.
 
-According to the spec update from Intel, the newer C0 stepping is not affected by this bug. Identifying the stepping of your CPU is tricky. It looks like the only place where it is specifically called out is in the PCIe configuration space.
+According to the [spec update](atom-c2000-family-spec-update.pdf) from Intel, the newer C0 stepping is not affected by this bug. Identifying the stepping of your CPU is tricky. It looks like the only place where it is specifically called out is in the PCIe configuration space.
 
 ![image](https://github.com/user-attachments/assets/d5b49796-61d6-4277-b296-bba1aea7d0d6)
 (Intel spec update doc, page 15)
 
-I have one of these devices running a PFSense firewall. To read this value in BSD, I use pciconf:
+I have a [Supermicro A1SRi-2758F](https://www.supermicro.com/products/motherboard/ATOM/X10/A1SRi-2758F.cfm) running a PFSense firewall. This motherboard has a Atom C2758 processor. To read this value in BSD, I use pciconf:
 
 `pciconf -r pci0:0:0:0 0x08`
 
