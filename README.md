@@ -1,4 +1,4 @@
-# C2000-Bug-Test
+# C2000 Bug Info
 Compiling a list of info I have found on the C2000 bug. Most notably how to determine if your CPU is affected.
 
 According to the spec update from Intel, the newer C0 stepping is not affected by this bug. Identifying the stepping of your CPU is tricky. It looks like the only place where it is specifically called out is in the PCIe configuration space.
@@ -18,12 +18,14 @@ The LSB (the number on the far right) should correspond to the 'PCI Rev ID' from
 
 
 ## Other notes
+From what I can tell, the older B0 stepping can still be okay if they apply a hardware fix. Basically, they solder some pull up resistors on some of the clock lines on the motherboard. Check the links below for more info and pictures.
+
 The spec document also talks about the CPUID and MSR (model specific registers). These can also be read from BSD, but I don't think they are actually relevant for determining the stepping of the CPU.
 
-To read the CPUID from the BSD:
+To read the CPUID in BSD:
 `cpucontrol -v -i 0x01 /dev/cpuctl0`
 
-To read MSR from BSD:
+To read MSR in BSD:
 `cpucontrol -v -m 0x17 /dev/cpuctl0` (this is reading register at address 0x17)
 
 ## Links
