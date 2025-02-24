@@ -15,3 +15,18 @@ This command can be put into the 'diagnostics->command prompt' section of the fi
 ![image](https://github.com/user-attachments/assets/43194218-d3aa-4e1b-a1a9-097e76377936)
 
 The LSB (the number on the far right) should correspond to the 'PCI Rev ID' from table 8 above. In the above screenshot, it appears to indicate a B0 stepping CPU. 
+
+
+## Other notes
+The spec document also talks about the CPUID and MSR (model specific registers). These can also be read from BSD, but I don't think they are actually relevant for determining the stepping of the CPU.
+
+To read the CPUID from the BSD:
+`cpucontrol -v -i 0x01 /dev/cpuctl0`
+
+To read MSR from BSD:
+`cpucontrol -v -m 0x17 /dev/cpuctl0` (this is reading register at address 0x17)
+
+## Links
+For more info
+* [servethehome forum post](https://forums.servethehome.com/index.php?threads/bug-in-intel-atom-c2000-series-processors.13173/)
+* [EEVBlog forum](https://www.eevblog.com/forum/microcontrollers/intel-atom-c2000-failures/)
