@@ -16,6 +16,7 @@ This command can be put into the 'diagnostics->command prompt' section of the fi
 
 The LSB (the number on the far right) should correspond to the 'PCI Rev ID' from table 8 above. In the above screenshot, it appears to indicate a B0 stepping CPU. 
 
+Note: I checked another of the same motherboard that was advertised as the C0 stepping and got `06000003` so it appears that this register is reading correctly.
 
 ## Other notes
 From what I can tell, the older B0 stepping can still be okay if they apply a hardware fix. Basically, they solder some pull up resistors on some of the clock lines on the motherboard. Check the links below for more info and pictures.
